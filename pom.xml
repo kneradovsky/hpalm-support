@@ -14,6 +14,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+         <groupId>org.apache.commons</groupId>
+          <artifactId>commons-lang3</artifactId>
+          <version>3.3.2</version>
+        </dependency>
+        <dependency>
             <groupId>xerces</groupId>
             <artifactId>xercesImpl</artifactId>
             <version>2.11.0</version>
@@ -40,9 +45,46 @@
             <artifactId>maven-jaxb2-plugin</artifactId>
             <version>0.12.3</version>
         </dependency>       
-  </dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>1.0.13</version>
+          <scope>compile</scope>
+        </dependency>
+ <dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-java</artifactId>
+    <version>1.2.2</version>
+
+</dependency>
+<dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-core</artifactId>
+    <version>1.2.2</version>
+
+</dependency>
+<dependency>
+    <groupId>info.cukes</groupId>
+    <artifactId>cucumber-junit</artifactId>
+    <version>1.2.2</version>
+
+</dependency>       
+ </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <allure.version>1.4.5</allure.version>
+        <aspectj.version>1.8.4</aspectj.version>
+    </properties>
+
     <build>
-        <defaultGoal>install</defaultGoal>
+        <defaultGoal></defaultGoal>
         <plugins>
             <plugin> 
                 <groupId>org.apache.maven.plugins</groupId> 
@@ -53,7 +95,7 @@
                     <encoding>UTF-8</encoding> 
                     <inputEncoding>UTF-8</inputEncoding> 
                     <outputEncoding>UTF-8</outputEncoding> 
-                    <testFailureIgnore>false</testFailureIgnore>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
                     </argLine>
@@ -80,7 +122,8 @@
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
-                <executions>
+                <version>0.12.3</version>
+		<executions>
                     <execution>
                         <goals>
                             <goal>generate</goal>
@@ -92,13 +135,6 @@
                     <schemaDirectory>${basedir}/src/main/schemas/hp/</schemaDirectory>
                 </configuration>
             </plugin>
-            <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>2.4</version>
-            <configuration>
-            <descriptor>${basedir}/dep.xml</descriptor>
-            </configuration>
-      </plugin>                         
         </plugins>
     </build>
 </project>
