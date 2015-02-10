@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="defect-links">
+    <xs:annotation>
+        <xs:documentation>The collection of defect links.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="defect-link" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="defect-link">
+    <xs:annotation>
+        <xs:documentation>A link between a defect and another entity. The other entity can be a test, a requirement, or another defect.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:all>
+            <xs:element name="id" type="xs:int" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The link ID.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="first-endpoint-id" type="xs:int" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The defect ID.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="second-endpoint-id" type="xs:int" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The ID of the entity the defect is linked to.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="second-endpoint-type" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The type of entity the defect is linked to.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="owner" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The user who created the link.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="creation-time" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>According to the database server clock.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Free text description.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="second-endpoint-status" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>A virtual field containing the current status of the linked entity. 
+						Possible values depend on entity type.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="second-endpoint-name" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>A virtual field containing the name of the linked entity. 
+						If the entity does not have a name field, second-endpoint-name contains the value of the field that best identifies the entity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+</xs:element>
+</xs:schema>
+

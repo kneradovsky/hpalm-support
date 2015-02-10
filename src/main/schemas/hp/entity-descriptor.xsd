@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EntityDescriptors"> 
+    <xs:annotation>
+        <xs:documentation>The collection of logical groups of projects.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="EntityDescriptor" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EntityDescriptor">
+    <xs:annotation>
+        <xs:documentation>The metadata on an entity type.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="Table" />
+            <xs:element ref="Name" />
+            <xs:element ref="Label" />
+            <xs:element ref="SupportsHistory" />
+            <xs:element ref="SupportsMultiValue" />
+            <xs:element ref="SupportsWorkflow" />
+            <xs:element ref="SupportsDataHidingFilter" />
+            <xs:element ref="SupportsVC" />
+            <xs:element ref="SupportsSubtypes" />
+            <xs:element ref="HierarchicalRootId" minOccurs="0" />
+            <xs:element ref="ExtensionName" />
+            <xs:element ref="IsSiteEntity" />
+            <xs:element ref="Attributes" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Attribute">
+    <xs:annotation>
+        <xs:documentation>A key-value meta-data element.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:element>
+
+<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AttributeSimpleType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="false" />
+        <xs:enumeration value="true" />
+    </xs:restriction>
+</xs:simpleType>
+
+ 
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Attributes">
+    <xs:annotation>
+        <xs:documentation>A collection of attributes primarily for use by extensions. ALM does not use values created by extension.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="Attribute" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+ 
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExtensionName" type="xs:string">
+    <xs:annotation>
+        <xs:documentation>The name of the extension if the descriptor applies to an extension.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+ 
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="HierarchicalRootId" type="xs:int">
+    <xs:annotation>
+        <xs:documentation>The ID of the root element for hierarchical Entities</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="IsSiteEntity" type="xs:boolean">
+    <xs:annotation>
+        <xs:documentation>A value of Y indicates that the entity can be shared between projects.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Label" type="xs:string">
+    <xs:annotation>
+        <xs:documentation>The display name. The display name can be customized and localized.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+ 
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Name" type="xs:string">
+    <xs:annotation>
+        <xs:documentation>The logical name of the entity.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+ 
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SupportsDataHidingFilter" type="xs:boolean">
+    <xs:annotation>
+        <xs:documentation>A value of Y indicates that this entity's fields can be part of a data hiding filter.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SupportsHistory" type="xs:boolean">
+    <xs:annotation>
+        <xs:documentation>A value of Y indicates that this entity's fields can be customized in the user interface to support history.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+ 
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SupportsMultiValue" type="xs:boolean">
+    <xs:annotation>
+        <xs:documentation>A value of Y indicates that this entity's fields can be customized in the user interface to support multiple values.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SupportsSubtypes" type="xs:boolean">
+    <xs:annotation>
+        <xs:documentation>A value of Y indicates that there can be subtypes of this entity.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+ 
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SupportsVC" type="xs:boolean">
+    <xs:annotation>
+        <xs:documentation>A value of Y indicates that versions of this entity can be saved if version control is enabled for the project.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+ <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SupportsWorkflow" type="xs:boolean">
+    <xs:annotation>
+        <xs:documentation>A value of Y indicates that events on this entity can be handled in the workflow module.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Table" type="xs:string">
+    <xs:annotation>
+        <xs:documentation>The name of the database table containing the entity.</xs:documentation>
+    </xs:annotation>
+</xs:element>
+</xs:schema>
+
+ 
+
+
+
+
+
+
+ 
+

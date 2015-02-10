@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EventLog">
+	<xs:complexType>
+        <xs:sequence>
+            <xs:element ref="TemplateName" />
+            <xs:element ref="ActionParams" />
+            <xs:element ref="ContextParams" />
+            <xs:element ref="DescriptionParams" />
+        </xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ActionParams">
+    <xs:annotation>
+        <xs:documentation>A collection of ActionParam elements.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="ActionParam" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ActionParam">
+    <xs:annotation>
+        <xs:documentation>The arguments to the action that triggered the event.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true" />
+</xs:element>
+
+ <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ContextParams">
+    <xs:annotation>
+        <xs:documentation>A collection of ContextParam elements.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="ContextParam" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+ <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ContextParam">
+    <xs:annotation>
+        <xs:documentation>An element of the state from which the action was called.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true" />
+</xs:element>
+
+ 
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DescriptionParams">
+    <xs:annotation>
+        <xs:documentation>A collection of DescriptionParams elements.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="DescriptionParam" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+ <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DescriptionParam">
+    <xs:annotation>
+        <xs:documentation>An element of the description of the action or event.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true" />
+</xs:element>
+
+ 
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="EventLogConfiguration">
+    <xs:annotation>
+        <xs:documentation>The definition of an event notification.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="TemplateName" />
+            <xs:element ref="ActionParams" />
+            <xs:element ref="ContextParams" />
+            <xs:element ref="DescriptionParams" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TemplateName">
+    <xs:annotation>
+        <xs:documentation>The name of the template for reports of this type of event.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true" />
+</xs:element>
+
+</xs:schema>
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Domains">
+    <xs:annotation>
+        <xs:documentation>The collection of logical groups of projects.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="Domain" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>A container for projects.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:attribute name="Name" type="xs:string" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The name of the domain.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+</xs:schema>
+
+
+ 
+

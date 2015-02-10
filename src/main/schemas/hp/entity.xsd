@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Entities">
+    <xs:annotation>
+        <xs:documentation>General entities collection in ALM.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="Entity" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="TotalResults" type="xs:int" use="required" />
+    </xs:complexType>
+</xs:element>
+
+
+<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Entity">
+    <xs:annotation>
+        <xs:documentation>An entity in ALM</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="Fields">
+                <xs:annotation>
+                    <xs:documentation>The collection of fields belong to this entity.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Field" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>A single field.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Value" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:annotation>
+                                            <xs:documentation>The current value of the field in this entity instance. Multi-value fields contain multi-value elements. Reference fields contain the ReferenceValue attribute.</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="ReferenceValue" type="xs:string" use="optional" />
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="Name" type="xs:string" use="required">
+                                    <xs:annotation>
+                                        <xs:documentation>The field name.</xs:documentation>
+                                    </xs:annotation>
+                                </xs:attribute>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="Type" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>The entity type, for example, test, test-folder, requirement, defect, etc..</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:element>
+</xs:schema>
