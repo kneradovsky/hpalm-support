@@ -20,25 +20,25 @@ public class HPALMReporter  extends RunListener {
 	
 	@Override
 	public void testAssumptionFailure(Failure failure) {
-		logger.debug(ReflectionToStringBuilder.toString(failure));
+		logger.debug("AssumptionFailure:"+ReflectionToStringBuilder.toString(failure));
 		super.testAssumptionFailure(failure);
 	}
 
 	@Override
 	public void testFailure(Failure failure) throws Exception {
-		logger.debug(ReflectionToStringBuilder.toString(failure));
+		logger.debug("TestFailure:"+ReflectionToStringBuilder.toString(failure));
 		super.testFailure(failure);
 	}
 
 	@Override
 	public void testFinished(Description description) throws Exception {
-		logger.debug(ReflectionToStringBuilder.toString(description));
+		logger.debug("testFinished:"+ReflectionToStringBuilder.toString(description));
 		super.testFinished(description);
 	}
 
 	@Override
 	public void testIgnored(Description description) throws Exception {
-		logger.debug(ReflectionToStringBuilder.toString(description));
+		logger.debug("testIgnored:"+ReflectionToStringBuilder.toString(description));
 		super.testIgnored(description);
 	}
 
@@ -58,7 +58,7 @@ public class HPALMReporter  extends RunListener {
 
 	@Override
 	public void testStarted(Description description) throws Exception {
-		logger.debug(ReflectionToStringBuilder.toString(description));
+		logger.debug("testStarted:"+ReflectionToStringBuilder.toString(description));
 		super.testStarted(description);
 	}
 
