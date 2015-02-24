@@ -21,6 +21,6 @@ public @interface AlmTest {
     String project() default "";
     String folder() default "";
     String name() default "";
-    String id();
+    String id() default "";
 };
 
